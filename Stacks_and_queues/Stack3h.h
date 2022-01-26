@@ -11,8 +11,10 @@ class Stack
 public:
 	explicit Stack(size_t cap = 1000);
 	Stack(const Stack<T>& src);
-	Stack(Stack<T>&& src);
+	Stack(Stack<T>&& src) noexcept;
+
 	Stack& operator=(Stack<T> lhs);
+	Stack& operator=(Stack<T>&& lhs) noexcept;
 	~Stack() { delete[] _arr; }
 
 public:
@@ -37,8 +39,9 @@ public:
 	bool isFull2() const;
 	bool isFull3() const;
 
-//private:
+private:
 	T* _arr;
+	T _min;
 
 	size_t _cap; 
 	size_t _size1;
@@ -48,6 +51,10 @@ public:
 	size_t _top1;
 	size_t _top2;
 	size_t _top3;
+	
+public:
+	void push_back(T elem);
+	T pop_front();
 };
 
 #include "Stack3h.hpp"

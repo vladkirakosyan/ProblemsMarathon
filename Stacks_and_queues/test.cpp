@@ -1,6 +1,12 @@
 #include <iostream>
 #include "Stack3h.h"
 
+namespace constants
+{
+	std::initializer_list<char> letters{ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
+	std::initializer_list<int> numbers{ 3, 6, 34, 1, 54, -23, 53, -22, 88, 101, 0 };
+}
+
 int main()
 {
 	Stack<int> arr(8);
